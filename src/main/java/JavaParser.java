@@ -2040,14 +2040,6 @@ public class JavaParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JavaListener ) ((JavaListener)listener).exitFieldDeclaration(this);
 		}
-
-		@Override
-		public boolean equals(Object o) {
-			if (this == o) return true;
-			if (o == null || getClass() != o.getClass()) return false;
-			FieldDeclarationContext fieldCtx = (FieldDeclarationContext) o;
-			return Objects.equals(children, fieldCtx.children);
-		}
 	}
 
 	public final FieldDeclarationContext fieldDeclaration() throws RecognitionException {
@@ -2574,14 +2566,6 @@ public class JavaParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JavaListener ) ((JavaListener)listener).exitVariableDeclarators(this);
 		}
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            VariableDeclaratorsContext listener = (VariableDeclaratorsContext) o;
-            return Objects.equals(getText(), listener.getText());
-        }
     }
 
 	public final VariableDeclaratorsContext variableDeclarators() throws RecognitionException {
@@ -2950,14 +2934,6 @@ public class JavaParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof JavaListener ) ((JavaListener)listener).exitTypeType(this);
 		}
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            TypeTypeContext listener = (TypeTypeContext) o;
-            return Objects.equals(getText(), listener.getText());
-        }
     }
 
 	public final TypeTypeContext typeType() throws RecognitionException {
