@@ -2,7 +2,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Lexer;
-import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.IOException;
@@ -35,12 +34,13 @@ public class Main {
         TestJavaBaseListenerImpl listener2 = new TestJavaBaseListenerImpl();
         walker.walk(listener1, ctx1);
         walker.walk(listener2, ctx2);
-        List<JavaParser.FieldDeclarationContext> fields1 = listener1.getFields();
-        List<JavaParser.FieldDeclarationContext> fields2 = listener2.getFields();
-        Set<JavaParser.FieldDeclarationContext> setOfFields1 = fields1.stream().collect(Collectors.toSet());
-        Set<JavaParser.FieldDeclarationContext> setOfFields2 = fields2.stream().collect(Collectors.toSet());
+        List<JavaParser.MemberDeclarationContext> fields1 = listener1.getFields();
+        List<JavaParser.MemberDeclarationContext> fields2 = listener2.getFields();
+        Set<JavaParser.MemberDeclarationContext> setOfFields1 = fields1.stream().collect(Collectors.toSet());
+        Set<JavaParser.MemberDeclarationContext> setOfFields2 = fields2.stream().collect(Collectors.toSet());
 
-
+        JavaParser.MemberDeclarationContext field1 = fields1.get(0);
+        JavaParser.MemberDeclarationContext field2 = fields2.get(0);
         System.out.println(setOfFields1.containsAll(setOfFields2));
         System.out.println(setOfFields2.containsAll(setOfFields1));
     }

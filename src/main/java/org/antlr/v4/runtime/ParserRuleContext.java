@@ -78,13 +78,13 @@ public class ParserRuleContext extends RuleContext {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		ParserRuleContext that = (ParserRuleContext) o;
-		return Objects.equals(children, that.children) &&
+		return //Objects.equals(children, that.children) &&
 				Objects.equals(getText(), that.getText());
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(children, getText());
+		return Objects.hash(/*children, */getText());
 	}
 
 	/** For debugging/tracing purposes, we want to track all of the nodes in

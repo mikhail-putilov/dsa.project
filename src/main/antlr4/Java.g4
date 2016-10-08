@@ -142,19 +142,19 @@ interfaceBody
 classBodyDeclaration
     :   ';'
     |   'static'? block
-    |   modifier* memberDeclaration
+    |   memberDeclaration
     ;
 
 memberDeclaration
-    :   methodDeclaration
-    |   genericMethodDeclaration
-    |   fieldDeclaration
-    |   constructorDeclaration
-    |   genericConstructorDeclaration
-    |   interfaceDeclaration
-    |   annotationTypeDeclaration
-    |   classDeclaration
-    |   enumDeclaration
+    :   modifier* methodDeclaration
+    |   modifier* genericMethodDeclaration
+    |   modifier* fieldDeclaration
+    |   modifier* constructorDeclaration
+    |   modifier* genericConstructorDeclaration
+    |   modifier* interfaceDeclaration
+    |   modifier* annotationTypeDeclaration
+    |   modifier* classDeclaration
+    |   modifier* enumDeclaration
     ;
 
 /* We use rule this even for void methods which cannot have [] after parameters.
