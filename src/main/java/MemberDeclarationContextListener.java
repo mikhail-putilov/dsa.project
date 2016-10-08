@@ -8,7 +8,7 @@ import java.util.List;
  * Created by mputilov on 29/09/16.
  */
 @Slf4j
-public class TestJavaBaseListenerImpl extends JavaBaseListener {
+public class MemberDeclarationContextListener extends JavaBaseListener {
     @Getter
     private List<JavaParser.MemberDeclarationContext> fields = new ArrayList<>();
 

@@ -30,8 +30,8 @@ public class Main {
         JavaParser.CompilationUnitContext ctx2 = parser2.compilationUnit();
 
         ParseTreeWalker walker = new ParseTreeWalker();
-        TestJavaBaseListenerImpl listener1 = new TestJavaBaseListenerImpl();
-        TestJavaBaseListenerImpl listener2 = new TestJavaBaseListenerImpl();
+        MemberDeclarationContextListener listener1 = new MemberDeclarationContextListener();
+        MemberDeclarationContextListener listener2 = new MemberDeclarationContextListener();
         walker.walk(listener1, ctx1);
         walker.walk(listener2, ctx2);
         List<JavaParser.MemberDeclarationContext> fields1 = listener1.getFields();
