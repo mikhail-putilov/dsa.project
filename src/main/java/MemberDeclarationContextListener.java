@@ -2,7 +2,9 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by mputilov on 29/09/16.
@@ -10,7 +12,7 @@ import java.util.List;
 @Slf4j
 public class MemberDeclarationContextListener extends JavaBaseListener {
     @Getter
-    private List<JavaParser.MemberDeclarationContext> fields = new ArrayList<>();
+    private Set<JavaParser.MemberDeclarationContext> fields = new HashSet<>();
 
     @Override
     public void exitMemberDeclaration(JavaParser.MemberDeclarationContext ctx) {

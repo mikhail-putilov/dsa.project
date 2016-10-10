@@ -34,15 +34,11 @@ public class Main {
         MemberDeclarationContextListener listener2 = new MemberDeclarationContextListener();
         walker.walk(listener1, ctx1);
         walker.walk(listener2, ctx2);
-        List<JavaParser.MemberDeclarationContext> fields1 = listener1.getFields();
-        List<JavaParser.MemberDeclarationContext> fields2 = listener2.getFields();
-        Set<JavaParser.MemberDeclarationContext> setOfFields1 = fields1.stream().collect(Collectors.toSet());
-        Set<JavaParser.MemberDeclarationContext> setOfFields2 = fields2.stream().collect(Collectors.toSet());
+        Set<JavaParser.MemberDeclarationContext> fields1 = listener1.getFields();
+        Set<JavaParser.MemberDeclarationContext> fields2 = listener2.getFields();
 
-        JavaParser.MemberDeclarationContext field1 = fields1.get(0);
-        JavaParser.MemberDeclarationContext field2 = fields2.get(0);
-        System.out.println(setOfFields1.containsAll(setOfFields2));
-        System.out.println(setOfFields2.containsAll(setOfFields1));
+        System.out.println(fields1.containsAll(fields2));
+        System.out.println(fields2.containsAll(fields1));
     }
 
 }
