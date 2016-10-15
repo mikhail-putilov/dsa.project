@@ -11,10 +11,17 @@ import java.util.Set;
 public class MemberDeclarationContextListener extends JavaBaseListener {
     @Getter
     private Set<JavaParser.MemberDeclarationContext> memberDeclarations = new HashSet<>();
+    @Getter
+    private Set<JavaParser.MemberDeclarationContext> methodDeclarations = new HashSet<>();
 
     @Override
     public void exitMemberDeclaration(JavaParser.MemberDeclarationContext ctx) {
-        log.debug(ctx.getText());
         memberDeclarations.add(ctx);
+    }
+
+    @Override
+    public void exitMethodDeclaration(JavaParser.MethodDeclarationContext ctx) {
+        log.debug(ctx.getText());
+        methodDeclarations.add((JavaParser.MemberDeclarationContext) ctx.parent);
     }
 }

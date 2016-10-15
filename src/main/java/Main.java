@@ -33,13 +33,11 @@ public class Main {
         MemberDeclarationContextListener listener2 = new MemberDeclarationContextListener();
         walker.walk(listener1, ctx1);
         walker.walk(listener2, ctx2);
-        Set<JavaParser.MemberDeclarationContext> members1 = listener1.getMemberDeclarations();
-        Set<JavaParser.MemberDeclarationContext> members2 = listener2.getMemberDeclarations();
+        Set<JavaParser.MemberDeclarationContext> methods1 = listener1.getMethodDeclarations();
+        Set<JavaParser.MemberDeclarationContext> methods2 = listener2.getMethodDeclarations();
 
-        System.out.println(members1.containsAll(members2));
-        System.out.println(members2.containsAll(members1));
-
-
+        System.out.println(methods1.containsAll(methods2));
+        System.out.println(methods2.containsAll(methods1));
     }
 
 }
