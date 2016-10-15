@@ -6,7 +6,6 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Created by mputilov on 07.09.16.
@@ -34,11 +33,13 @@ public class Main {
         MemberDeclarationContextListener listener2 = new MemberDeclarationContextListener();
         walker.walk(listener1, ctx1);
         walker.walk(listener2, ctx2);
-        Set<JavaParser.MemberDeclarationContext> fields1 = listener1.getFields();
-        Set<JavaParser.MemberDeclarationContext> fields2 = listener2.getFields();
+        Set<JavaParser.MemberDeclarationContext> members1 = listener1.getMemberDeclarations();
+        Set<JavaParser.MemberDeclarationContext> members2 = listener2.getMemberDeclarations();
 
-        System.out.println(fields1.containsAll(fields2));
-        System.out.println(fields2.containsAll(fields1));
+        System.out.println(members1.containsAll(members2));
+        System.out.println(members2.containsAll(members1));
+
+
     }
 
 }
