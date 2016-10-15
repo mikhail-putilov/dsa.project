@@ -1,4 +1,9 @@
+package ru.innopolis.mputilov.dsap;
+
 import lombok.extern.slf4j.Slf4j;
+import org.antlr.JavaLexer;
+import org.antlr.JavaParser;
+import ru.innopolis.mputilov.dsap.MemberDeclarationContextListener;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Lexer;
