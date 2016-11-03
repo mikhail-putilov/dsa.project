@@ -14,18 +14,10 @@ import java.util.Set;
 @Slf4j
 public class ImportsContextListener extends JavaBaseListener {
     @Getter
-    private Set<JavaParser.MemberDeclarationContext> memberDeclarations = new HashSet<>();
-    @Getter
-    private Set<JavaParser.MemberDeclarationContext> methodDeclarations = new HashSet<>();
+    private Set<JavaParser.ImportDeclarationContext> importDeclarations = new HashSet<>();
 
     @Override
-    public void exitMemberDeclaration(JavaParser.MemberDeclarationContext ctx) {
-        memberDeclarations.add(ctx);
-    }
-
-    @Override
-    public void exitMethodDeclaration(JavaParser.MethodDeclarationContext ctx) {
-        log.debug(ctx.getText());
-        methodDeclarations.add((JavaParser.MemberDeclarationContext) ctx.parent);
+    public void exitImportDeclaration(JavaParser.ImportDeclarationContext ctx) {
+        importDeclarations.add(ctx);
     }
 }

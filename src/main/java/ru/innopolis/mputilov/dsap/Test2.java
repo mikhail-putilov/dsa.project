@@ -1,4 +1,5 @@
 package ru.innopolis.mputilov.dsap;
+import java.lang.Class;
 
 public class Test2 {
     int a;

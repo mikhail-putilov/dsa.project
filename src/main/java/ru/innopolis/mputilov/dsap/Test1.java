@@ -1,5 +1,5 @@
 package ru.innopolis.mputilov.dsap;
-
+import java.applet.Applet;
 public class Test1 {
     int a;
     private void asd() {
