@@ -4,6 +4,7 @@ import com.github.gumtreediff.client.Run;
 import com.github.gumtreediff.gen.Generators;
 import com.github.gumtreediff.matchers.Matcher;
 import com.github.gumtreediff.matchers.Matchers;
+import com.github.gumtreediff.tree.AbstractTree;
 import com.github.gumtreediff.tree.ITree;
 import com.github.gumtreediff.tree.TreeContext;
 import org.junit.Test;
@@ -104,9 +105,11 @@ public class MainTest {
                         isGoodRight = checkContext(rightCtx, rightdestctx);
                     }
                     if (isGoodLeft && isGoodRight) {
-                        System.err.println("RESOLVABLE CHANGES");
+                        ((AbstractTree)node).additionalLabel =  "v";
+                        System.err.println("RESOLVABLE CHANGES (marked as v)");
                     } else {
-                        System.err.println("CONFLICT CHANGES WITH BEST KNOWN EFFORT: " + node.toShortString());
+                        ((AbstractTree)node).additionalLabel =  "*";
+                        System.err.println("CONFLICT CHANGES WITH BEST KNOWN EFFORT (marked as *!)");
                     }
                 }
                 node.getChildren().clear();
